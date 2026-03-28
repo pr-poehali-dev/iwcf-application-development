@@ -137,7 +137,6 @@ function calcResults(p: WellParams): CalcResults {
 
   return {
     killMudWeight, icp, fcp, bottomholePressure,
-    formationIntegrityPressure: leakOffPressure,
     annularPressureLoss, ecd, strokesToSurface,
     strokesDrillpipe, strokesAnnulus,
     maxAllowableMudWeight, leakOffPressure, maxSurfacePressure,
@@ -301,7 +300,7 @@ export default function Calculator() {
               </div>
               <div className="p-3 space-y-2">
                 <ResultRow label="Забойное давление (BHP)" value={results?.bottomholePressure ?? null} unit={METRIC.pressure} />
-                <ResultRow label="Давление целостности пласта (FIP)" value={results?.formationIntegrityPressure ?? null} unit={METRIC.pressure} color="amber" />
+                <ResultRow label="Давление целостности пласта (FIP)" value={results?.leakOffPressure ?? null} unit={METRIC.pressure} color="amber" />
                 <ResultRow label="Потери давления в затрубе (APL)" value={results?.annularPressureLoss ?? null} unit={METRIC.pressure} />
                 <ResultRow label="Эквивалентная плотность циркуляции (ECD)" value={results?.ecd ?? null} unit={METRIC.density} color="amber" />
                 <ResultRow label="Макс. допустимое устьевое давление (MAASP)" value={results?.maxSurfacePressure ?? null} unit={METRIC.pressure} color="red" />
