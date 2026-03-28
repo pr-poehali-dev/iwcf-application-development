@@ -4,89 +4,50 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 20% 6%;
+    --foreground: 210 15% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 210 18% 9%;
+    --card-foreground: 210 15% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 210 18% 9%;
+    --popover-foreground: 210 15% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 195 80% 50%;
+    --primary-foreground: 210 20% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 15% 14%;
+    --secondary-foreground: 210 15% 75%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 15% 12%;
+    --muted-foreground: 210 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 38 90% 52%;
+    --accent-foreground: 210 20% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 15% 90%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 15% 16%;
+    --input: 210 15% 14%;
+    --ring: 195 80% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 210 20% 5%;
+    --sidebar-foreground: 210 15% 75%;
+    --sidebar-primary: 195 80% 50%;
+    --sidebar-primary-foreground: 210 20% 6%;
+    --sidebar-accent: 210 15% 12%;
+    --sidebar-accent-foreground: 210 15% 90%;
+    --sidebar-border: 210 15% 14%;
+    --sidebar-ring: 195 80% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --iwcf-cyan: 195 80% 50%;
+    --iwcf-amber: 38 90% 52%;
+    --iwcf-green: 145 65% 45%;
+    --iwcf-red: 0 70% 55%;
+    --iwcf-purple: 265 65% 60%;
   }
 }
 
@@ -97,5 +58,159 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+
+  .font-mono {
+    font-family: "IBM Plex Mono", monospace;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-card border border-border rounded-lg;
+  }
+
+  .panel-header {
+    @apply px-4 py-3 border-b border-border flex items-center gap-2;
+  }
+
+  .data-row {
+    @apply flex items-center justify-between py-2 px-3 rounded border border-border/50 bg-muted/30;
+  }
+
+  .value-display {
+    @apply font-mono text-[hsl(var(--iwcf-cyan))] font-semibold tabular-nums;
+  }
+
+  .label-text {
+    @apply text-muted-foreground text-sm;
+  }
+
+  .section-title {
+    @apply text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-3;
+  }
+
+  .nav-btn {
+    @apply flex flex-col items-center gap-1 px-3 py-2.5 rounded-lg text-xs font-medium transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-btn.active {
+    @apply bg-[hsl(var(--iwcf-cyan))] text-[hsl(210,20%,6%)];
+  }
+
+  .nav-btn:not(.active) {
+    @apply text-muted-foreground hover:text-foreground hover:bg-muted;
+  }
+
+  .inp {
+    @apply w-full bg-input border border-border rounded px-3 py-2 text-sm font-mono text-foreground 
+           focus:outline-none focus:ring-1 focus:ring-[hsl(var(--iwcf-cyan))] focus:border-[hsl(var(--iwcf-cyan))]
+           placeholder:text-muted-foreground/50 transition-colors;
+  }
+
+  .result-card {
+    @apply panel p-4 border-l-2 border-l-[hsl(var(--iwcf-cyan))];
+  }
+
+  .result-card.warning {
+    @apply border-l-[hsl(var(--iwcf-amber))];
+  }
+
+  .result-card.danger {
+    @apply border-l-[hsl(var(--iwcf-red))];
+  }
+
+  .result-card.success {
+    @apply border-l-[hsl(var(--iwcf-green))];
+  }
+
+  .tag {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-mono font-medium;
+  }
+
+  .tag-cyan {
+    @apply tag bg-[hsl(var(--iwcf-cyan)/0.15)] text-[hsl(var(--iwcf-cyan))];
+  }
+
+  .tag-amber {
+    @apply tag bg-[hsl(var(--iwcf-amber)/0.15)] text-[hsl(var(--iwcf-amber))];
+  }
+
+  .tag-green {
+    @apply tag bg-[hsl(var(--iwcf-green)/0.15)] text-[hsl(var(--iwcf-green))];
+  }
+
+  .tag-red {
+    @apply tag bg-[hsl(var(--iwcf-red)/0.15)] text-[hsl(var(--iwcf-red))];
+  }
+
+  .grid-table {
+    @apply w-full text-sm;
+  }
+
+  .grid-table th {
+    @apply text-left py-2 px-3 text-xs uppercase tracking-wider text-muted-foreground font-semibold border-b border-border;
+  }
+
+  .grid-table td {
+    @apply py-2 px-3 border-b border-border/50 font-mono;
+  }
+
+  .grid-table tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .grid-table tr:hover td {
+    @apply bg-muted/30;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-[hsl(var(--iwcf-cyan))] text-[hsl(210,20%,6%)] rounded font-semibold text-sm 
+           hover:bg-[hsl(195,80%,60%)] transition-colors cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-muted text-foreground rounded font-medium text-sm 
+           hover:bg-muted/80 border border-border transition-colors cursor-pointer;
+  }
+
+  .btn-amber {
+    @apply px-4 py-2 bg-[hsl(var(--iwcf-amber))] text-[hsl(210,20%,6%)] rounded font-semibold text-sm 
+           hover:opacity-90 transition-opacity cursor-pointer;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.25s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 }
